@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity"
+    android:background="@drawable/layout_app"
+    android:fitsSystemWindows="true"
+    >
+
+
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/image_logo"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@null"
+                android:src="@drawable/logo_hoangviet" />
+
+            <TextView
+                android:id="@+id/sign"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/image_logo"
+                android:layout_centerHorizontal="true"
+                android:text="Sign in to start"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/hoangviet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sign"
+                android:layout_centerHorizontal="true"
+                android:text="Hoàng Việt Mobile"
+                android:textSize="30sp" />
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="25dp"
+                android:id="@+id/Username_Wrapper"
+                android:layout_below="@+id/hoangviet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintEnabled="true"
+                >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editTex_Username"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:hint="Username"
+                    android:maxLength="50"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/Password_Wrapper"
+                android:layout_below="@+id/Username_Wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true"
+                app:hintEnabled="true"
+                >
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editText_Password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:inputType="textPassword"
+                    android:maxLength="30"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+
+
+            <Button
+                android:id="@+id/button_SignIn"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Password_Wrapper"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/button_signin"
+                android:text="Sign in"
+
+                />
+
+            <Button
+                android:id="@+id/button_SignUp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/button_SignIn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/button_signin"
+                android:text="Sign up" />
+
+            <LinearLayout
+                android:id="@+id/linearlayount1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/button_SignUp"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="96dp"
+                    android:layout_height="7dp"
+                    android:layout_gravity="center"
+                    android:background="#C9DCEC" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="13dp"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginRight="11dp"
+                    android:text="SIGN IN WITH"
+                    android:textColor="#ffffff"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:layout_width="96dp"
+                    android:layout_height="7dp"
+                    android:layout_gravity="center"
+                    android:background="#C9DCEC" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearlayount1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="50dp">
+
+                <ImageButton
+                    android:layout_width="49dp"
+                    android:layout_height="49dp"
+                    android:background="@null"
+                    android:src="@drawable/facebokicon" />
+
+                <ImageButton
+                    android:layout_width="49dp"
+                    android:layout_height="49dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@null"
+                    android:src="@drawable/skype_logo" />
+
+                <ImageButton
+                    android:layout_width="49dp"
+                    android:layout_height="49dp"
+                    android:background="@null"
+                    android:src="@drawable/twitter_icon" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+</RelativeLayout>

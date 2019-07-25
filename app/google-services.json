@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "584823701114",
+    "firebase_url": "https://ung-dung-hoang-viet-demo.firebaseio.com",
+    "project_id": "ung-dung-hoang-viet-demo",
+    "storage_bucket": "ung-dung-hoang-viet-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584823701114:android:042dd55f6c0510d7",
+        "android_client_info": {
+          "package_name": "hoangviet.ndhv.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584823701114-qcjbngtg86p59vtgocg7cf6g6ug20jrq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCty-_AHiAEYms1w-TrG0p6c-AJ2MAWHzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584823701114-qcjbngtg86p59vtgocg7cf6g6ug20jrq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
