@@ -30,7 +30,8 @@ Button button_signUp;
 EditText edt_dangki_username,edt_dangki_password,edt_dangki_Repassword;
 Button btn_dangki_Huy,btn_dangki_Xacnhan,btn_signIn;
 TextInputLayout usernameWrapper,passwordWraper;
-TextInputEditText edt_dangnhap_username,edt_dangnhap_password;
+    public static TextInputEditText edt_dangnhap_username;
+    TextInputEditText edt_dangnhap_password;
 
 
 
@@ -40,6 +41,9 @@ TextInputEditText edt_dangnhap_username,edt_dangnhap_password;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         anhXa();
+
+
+
         edt_dangnhap_username.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -130,7 +134,7 @@ TextInputEditText edt_dangnhap_username,edt_dangnhap_password;
 
     private void dangnhapAuth(){
         mAuth = FirebaseAuth.getInstance();
-        String email = edt_dangnhap_username.getText().toString();
+        final String email = edt_dangnhap_username.getText().toString();
         String password =  edt_dangnhap_password.getText().toString();
         if (email.isEmpty() ||  password.isEmpty() || email.isEmpty() && password.isEmpty()){
             Toast.makeText(this, "Bạn chưa nhập Email hoặc password.", Toast.LENGTH_SHORT).show();
@@ -143,6 +147,8 @@ TextInputEditText edt_dangnhap_username,edt_dangnhap_password;
                             if (task.isSuccessful()) {
                                 Toast.makeText(MainActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(MainActivity.this,second_activity.class);
+                                intent.putExtra("user",email);
+
                                 startActivity(intent);
                             } else {
                                 Toast.makeText(MainActivity.this, "Lỗi đăng nhập", Toast.LENGTH_SHORT).show();
@@ -200,4 +206,5 @@ TextInputEditText edt_dangnhap_username,edt_dangnhap_password;
         usernameWrapper = (TextInputLayout)findViewById(R.id.Username_Wrapper);
         passwordWraper = (TextInputLayout)findViewById(R.id.Password_Wrapper);
     }
+
 }
