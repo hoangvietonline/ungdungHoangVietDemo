@@ -30,15 +30,24 @@
                 android:text="Quảng Nam"
                 />
         </LinearLayout>
+<FrameLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentEnd="true">
+    <ImageView
+        android:id="@+id/avarta_user"
+        android:layout_margin="10dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/icons_user" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_avata_user"
+        />
 
-        <ImageView
-            android:id="@+id/avarta_user"
-            android:layout_margin="10dp"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/icons_user" />
+</FrameLayout>
 
     </RelativeLayout>
 

@@ -28,7 +28,11 @@ public class FragmentAccount extends ListFragment {
         View view = inflater.inflate(R.layout.fragment_account,container,false);
         txt_user = view.findViewById(R.id.txt_Ten_TaiKhoan);
         img_avata  = view.findViewById(R.id.avarta_user);
-        txt_user.setText(MainActivity.edt_dangnhap_username.toString());
+        Bundle bundle = getArguments();
+        if (bundle != null){
+            txt_user.setText(bundle.getString("user1"));
+        }
+
         img_avata.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,5 +71,8 @@ public class FragmentAccount extends ListFragment {
             startActivity(intent);
         }
         super.onListItemClick(l, v, position, id);
+    }
+    public void ganuserName(String username){
+        txt_user.setText(username);
     }
 }

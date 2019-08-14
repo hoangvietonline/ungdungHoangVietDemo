@@ -1,6 +1,7 @@
 package hoangviet.ndhv.com;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -23,7 +24,7 @@ import org.w3c.dom.Text;
 public class second_activity extends AppCompatActivity {
     private static final String TAG = "second_activity";
     private static final int ERROR_DIALOG_REQUEST = 1212;
-
+    String user_name = "";
 
     ActionBar actionBar;
     private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -33,8 +34,6 @@ public class second_activity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    removeNotifications();
-                    removeAccount();
                     if (isServicesOK()){
                         fragmentHome();
                     }
@@ -42,13 +41,9 @@ public class second_activity extends AppCompatActivity {
                 case R.id.navigation_dashboard:
                     return true;
                 case R.id.navigation_notifications:
-                    removeHome();
-                    removeAccount();
                     fragmentNotifications();
                     return true;
                 case R.id.navigation_account:
-                    removeHome();
-                    removeNotifications();
                     fragmentAccount();
                     return true;
             }
@@ -68,6 +63,7 @@ public class second_activity extends AppCompatActivity {
         if (isServicesOK()){
             fragmentHome();
         }
+
     }
 
     @Override
@@ -78,7 +74,6 @@ public class second_activity extends AppCompatActivity {
     private void khoiTaoToolBar(){
         Toolbar toolbar = (Toolbar)findViewById(R.id.toobar);
         setSupportActionBar(toolbar);
-        actionBar = getSupportActionBar();
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -86,45 +81,28 @@ public class second_activity extends AppCompatActivity {
     }
     private void fragmentAccount(){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.FrameLayout,new FragmentAccount(),"fragmentAccount");
+        FragmentAccount fragmentAccount = new FragmentAccount();
+        Intent intent = getIntent();
+        user_name = intent.getStringExtra("user");
+        Bundle bundle = new Bundle();
+        bundle.putString("user1",user_name);
+        fragmentAccount.setArguments(bundle);
+        fragmentTransaction.replace(R.id.FrameLayout,fragmentAccount,"fragmentAccount");
         fragmentTransaction.commit();
     }
 
-    private void removeAccount(){
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            FragmentAccount fragmentAccount = (FragmentAccount) getSupportFragmentManager().findFragmentByTag("fragmentAccount");
-            if (fragmentAccount != null){
-            fragmentTransaction.remove(fragmentAccount);
-            fragmentTransaction.commit();
-        }
-
-    }
     private void fragmentNotifications(){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.FrameLayout,new FragmentNotifications(),"fragmentNotification");
+        fragmentTransaction.replace(R.id.FrameLayout,new FragmentNotifications(),"fragmentNotification");
         fragmentTransaction.commit();
     }
-    private void removeNotifications(){
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            FragmentNotifications fragmentNotifications = (FragmentNotifications) getSupportFragmentManager().findFragmentByTag("fragmentNotification");
-            if (fragmentNotifications != null){
-            fragmentTransaction.remove(fragmentNotifications);
-            fragmentTransaction.commit();
-        }
-    }
+
     private void fragmentHome(){
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.add(R.id.FrameLayout, new FragmentHome(), "fragmentHome");
+            fragmentTransaction.replace(R.id.FrameLayout, new FragmentHome(), "fragmentHome");
             fragmentTransaction.commit();
         }
-    private void removeHome(){
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            FragmentHome fragmentHome = (FragmentHome)getSupportFragmentManager().findFragmentByTag("fragmentHome");
-            if (fragmentHome != null){
-            fragmentTransaction.remove(fragmentHome);
-            fragmentTransaction.commit();
-        }
-    }
+
 
 
     public boolean isServicesOK() {

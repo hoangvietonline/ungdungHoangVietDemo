@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">ung dung Hoang Viet Demo</string>
-    <string name="title_activity_second_activity">second_activity</string>
+    <string name="app_name">Find gas station</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="browser">AIzaSyA-Q1LKz4ojKjc4r0pjy0pmBH4glEJvcXs</string>
+    <string name="api_key">AIzaSyAOmqNof_PyDgm8iy0N1AwhkpmFtDIbFsQ</string>
 </resources>

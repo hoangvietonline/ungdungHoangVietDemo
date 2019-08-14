@@ -116,6 +116,8 @@ TextInputLayout usernameWrapper,passwordWraper;
         edt_dangki_Repassword = (EditText)dialog.findViewById(R.id.editText_dangki_repassword);
         btn_dangki_Huy        = (Button)dialog.findViewById(R.id.button_dangki_huy);
         btn_dangki_Xacnhan    = (Button)dialog.findViewById(R.id.button_dangki_xacnhan);
+
+
         btn_dangki_Xacnhan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,7 +130,6 @@ TextInputLayout usernameWrapper,passwordWraper;
                 dialog.dismiss();
             }
         });
-
         dialog.show();
     }
 
@@ -166,23 +167,27 @@ TextInputLayout usernameWrapper,passwordWraper;
         String emaildk    = edt_dangki_username.getText().toString();
         String passworddk = edt_dangki_password.getText().toString();
         String re_passworddk = edt_dangki_Repassword.getText().toString();
-        if (passworddk.equals(re_passworddk)){
-            mAuth.createUserWithEmailAndPassword(emaildk, passworddk)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(MainActivity.this, "Chúc mừng bạn, tạo tài khoản thành công!", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(MainActivity.this, "Lỗi tạo tài khoản, xin vui lòng kiểm tra lại!", Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-                    });
-        }else {
-            Toast.makeText(this, "Xác nhận mật khẩu không đúng, xin vui lòng kiểm tra lại!", Toast.LENGTH_SHORT).show();
+        if (emaildk.isEmpty() || passworddk.isEmpty() || emaildk.isEmpty() && passworddk.isEmpty() ){
+            Toast.makeText(this, "Bạn phải nhập username và password!!!", Toast.LENGTH_SHORT).show();
         }
+        else {
+            if (passworddk.equals(re_passworddk)) {
+                mAuth.createUserWithEmailAndPassword(emaildk, passworddk)
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(MainActivity.this, "Chúc mừng bạn, tạo tài khoản thành công!", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(MainActivity.this, "Lỗi tạo tài khoản, xin vui lòng kiểm tra lại!", Toast.LENGTH_SHORT).show();
+                                }
 
+                            }
+                        });
+            } else {
+                Toast.makeText(this, "Xác nhận mật khẩu không đúng, xin vui lòng kiểm tra lại!", Toast.LENGTH_SHORT).show();
+            }
+        }
 
     }
 

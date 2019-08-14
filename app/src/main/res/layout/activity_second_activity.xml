@@ -10,17 +10,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/toobar"
-        android:background="#997D7D"
+        android:background="#048396"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:logo="@drawable/logo_hoangviet"
+        app:logo="@drawable/gas_32"
         tools:ignore="MissingConstraints"
         >
         <TextView
             android:id="@+id/txtTittleToolbar"
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hoàng Việt"
-            android:layout_marginStart="20dp"
+            android:text="Find gas station"
+            android:layout_marginStart="30dp"
             android:textSize="20sp"
             android:textColor="#ffffff"
             />
